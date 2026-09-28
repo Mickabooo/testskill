@@ -1,6 +1,6 @@
 ---
 name: hello-world
-description:Prints "HELLO WORLD" as a large ASCII-art banner. Use when user types "Hello World"
+description: Prints "HELLO WORLD" as a large ASCII-art banner. Use when user types "Hello World"
 ---
 
 When a user types "Hello World" or "hello world":
