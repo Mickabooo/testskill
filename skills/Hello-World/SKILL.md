@@ -1,5 +1,5 @@
 ---
-name:Hello-World
+name: Hello-World
 description: Use when user types "Hello World"
 ---
 
