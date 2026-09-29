@@ -1,6 +1,8 @@
 ---
 name: travel-vlog
-description: Turn your videos sitting around from a trip into a edited, sharable, hype video using hyperframes. Use when someone says "/travel-video"
+description: Assemble trip clips into a short travel video. Use when the user asks for a travel video or trip montage.
 ---
 
-## Step 1: Inspect the project
+## Step 1: Inspect the project folder
+
+1. 
