@@ -1,3 +1,47 @@
+## Check for an existing inspection
+
+Store inspection results in `inspected/` inside the user's footage
+folder. Create this directory if it does not exist.
+Exclude this directory when searching for input footage.
+
+Before decoding videos or sampling frames:
+
+1. Look for `inspected/manifest.json` and `inspected/inspection.md`.
+2. List the current input files and compare their relative paths,
+   file sizes in bytes, and last-modified timestamps with the manifest.
+3. Reuse saved findings for files whose values have not changed.
+4. Inspect only new or changed files.
+5. Remove entries for files that no longer exist.
+6. If either saved file is missing or unreadable, inspect again.
+7. If the user explicitly asks to refresh the inspection, inspect
+   every input file again.
+
+Reusing an inspection must preserve its limitations:
+- "Audio not assessed" remains unassessed.
+- Sampled frames do not mean the full video was visually reviewed.
+- Retry a previously unavailable inspection only when the user
+  requests it or the required tool becomes available.
+
+## Save the results
+
+After inspection:
+
+1. Write the readable findings to `inspected/inspection.md`,
+   organized by each file's relative path.
+2. Write `inspected/manifest.json` containing:
+   - Inspection rules version: 1
+   - Inspection timestamp
+   - Each input file's relative path
+   - File size in bytes
+   - Last-modified timestamp
+   - Whether technical, visual, and audio inspection succeeded
+3. Save the manifest only after successfully saving the report.
+4. If the inspection rules version changes, refresh the inspection.
+5. If saving fails, tell the user the results were not cached.
+
+Return the findings in the conversation and state how many files
+were reused, newly inspected, changed, or removed.
+
 # Step 1: Inspect the trip footage
 
 Inspect the user-provided folder to understand what footage is
